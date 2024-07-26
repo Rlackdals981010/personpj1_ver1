@@ -9,6 +9,7 @@ public class App {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Calculator cal = new Calculator();
+        Calculator cir_cal = new Calculator();
 
         int a,b; // idx 삭제
         char sign;
@@ -16,26 +17,49 @@ public class App {
 
         while(true){
 
-            System.out.print("첫 번째 숫자를 입력하세요: ");
-            a=Integer.parseInt(br.readLine());
-            System.out.print("두 번째 숫자를 입력하세요: ");
-            b=Integer.parseInt(br.readLine());
-            System.out.print("사칙연산 기호를 입력하세요: ");
-            sign=br.readLine().charAt(0);
+            System.out.println("사칙연산 계산기 1 | 원 넓이 계산기 2");
+            command = br.readLine();
+            if(command.equals("1")){
+                System.out.print("첫 번째 숫자를 입력하세요: ");
+                a=Integer.parseInt(br.readLine());
+                System.out.print("두 번째 숫자를 입력하세요: ");
+                b=Integer.parseInt(br.readLine());
+                System.out.print("사칙연산 기호를 입력하세요: ");
+                sign=br.readLine().charAt(0);
 
-            int ret = cal.calculate(a, b, sign);
+                int ret = cal.calculate(a, b, sign);
 
-            System.out.println("결과:"+ret);
-            cal.setArr(ret);
+                System.out.println("결과:"+ret);
+                cal.setArr(ret);
 
-            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-            command=br.readLine();
-            if(command.equals("remove")) cal.removeResult();
+                System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+                command=br.readLine();
+                if(command.equals("remove")) cal.removeResult();
 
-            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-            command=br.readLine();
-            if(command.equals("inquiry")) {
-                cal.inquiryResults();
+                System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+                command=br.readLine();
+                if(command.equals("inquiry")) {
+                    cal.inquiryResults();
+                }
+            }
+            else{
+                System.out.print("반지름을 입력하세요: ");
+                a=Integer.parseInt(br.readLine());
+
+                double ret = cir_cal.calculateCircleArea(a);
+
+                System.out.println("결과:"+ret);
+                cir_cal.setCir_arr(ret);
+
+                System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+                command=br.readLine();
+                if(command.equals("remove")) cir_cal.removeCirResult();
+
+                System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+                command=br.readLine();
+                if(command.equals("inquiry")) {
+                    cir_cal.inquiryCirResults();
+                }
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");

@@ -11,6 +11,7 @@ public class ArithmeticCalculator extends Calculator {
     InterOperator mod;
 
     public ArithmeticCalculator(){
+
         this.add = new AddOperator();
         this.sub = new SubtractOperator();
         this.div = new DivideOperator();
@@ -18,27 +19,18 @@ public class ArithmeticCalculator extends Calculator {
         this.mod = new ModOperator();
     }
 
-    public int calculate(int a,int b, char sign) {
-        int ret=0;
-        switch (sign){
-            case '+':
-                ret=add.operate(a, b);
-                break;
-            case '-':
-                ret=sub.operate(a, b);
-                break;
-            case '*':
-                ret=mul.operate(a, b);
-                break;
-            case '/':
-                ret=div.operate(a, b);
-                break;
-            case '%':
-                ret = mod.operate(a, b);
-                break;
-            default:
-                System.out.println("해당 문자는 연산자가 아닙니다.");
-        }
+    public int calculate(int a,int b, char sign){
+        return calculate(a,b,OperatorType.findType(sign));
+    }
+
+    public int calculate(int a,int b, OperatorType ot) {
+        int ret = switch (ot) {
+            case ADD -> add.operate(a, b);
+            case SUB -> sub.operate(a, b);
+            case MUL -> mul.operate(a, b);
+            case DIV -> div.operate(a, b);
+            case MOD -> mod.operate(a, b);
+        };
         return ret;
     }
 }

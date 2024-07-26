@@ -1,7 +1,6 @@
 package calculator;
 
 import java.io.*;
-import java.util.*;
 
 public class App  {
 
@@ -24,7 +23,7 @@ public class App  {
                 callCA();
             }
             else{
-                System.out.println("해당 입력은 잘못된 입력입니다.");
+                throw new IllegalArgumentException("해당 문자는 연산자가 아닙니다: " );
             }
 
             System.out.println("계속 하시겠습니까? (exit 입력 시 종료)");

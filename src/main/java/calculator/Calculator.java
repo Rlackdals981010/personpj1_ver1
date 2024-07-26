@@ -4,8 +4,7 @@ import calculator.ACalculator.*;
 
 import java.util.*;
 
-public abstract class Calculator {
-
+public class Calculator {
 
     private final ArrayList<Double> arr;
 

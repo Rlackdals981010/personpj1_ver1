@@ -1,6 +1,7 @@
 package calculator;
 
 import java.io.*;
+import java.util.*;
 
 public class App {
 
@@ -8,11 +9,11 @@ public class App {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int a,b,ret=0,idx=0;
+        int a,b,ret=0; // idx 삭제
         char sign;
         String command;
 
-        int[] arr = new int[10];
+        ArrayList<Integer> arr = new ArrayList<>(); // 배열-> 리스트로 교체, 순서 존재해서 ArrayList
 
         while(true){
 
@@ -40,16 +41,13 @@ public class App {
             }
 
             System.out.println("결과:"+ret);
-            if(idx>=9){
-                for(int i=0;i<idx;i++){
-                    arr[i]=arr[i+1];
-                }
-                arr[idx]=ret;
-            }
-            else {
-                arr[idx++] = ret;
-            }
-            System.out.println(idx);
+            arr.add(ret);
+
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            command=br.readLine();
+            if(command.equals("remove")) arr.remove(0);
+
+            System.out.println(arr.get(0));
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             command=br.readLine();

@@ -1,11 +1,16 @@
 package calculator;
 
+import calculator.ACalculator.AddOperator;
+import calculator.ACalculator.DivideOperator;
+import calculator.ACalculator.MultiplyOperator;
+import calculator.ACalculator.SubtractOperator;
+
 import java.util.*;
 
 public abstract class Calculator {
 
 
-    private ArrayList<Double> arr;
+    private final ArrayList<Double> arr;
 
 
     public Calculator(){

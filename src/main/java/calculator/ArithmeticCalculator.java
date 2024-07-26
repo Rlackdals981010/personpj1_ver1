@@ -1,26 +1,35 @@
 package calculator;
 
+import calculator.ACalculator.*;
+
 public class ArithmeticCalculator extends Calculator {
 
-    public int calculate(int a,int b, char sign)throws Exception{
+    AddOperator add;
+    SubtractOperator sub;
+    DivideOperator div;
+    MultiplyOperator mul;
+
+    public ArithmeticCalculator(){
+        this.add = new AddOperator();
+        this.sub = new SubtractOperator();
+        this.div = new DivideOperator();
+        this.mul = new MultiplyOperator();
+    }
+
+    public int calculate(int a,int b, char sign) throws Exception {
         int ret=0;
         switch (sign){
             case '+':
-                ret=a+b;
+                ret=add.operate(a, b);
                 break;
             case '-':
-                ret=a-b;
+                ret=sub.operate(a, b);
                 break;
             case '*':
-                ret=a*b;
+                ret=mul.operate(a, b);
                 break;
             case '/':
-                try{
-                    ret = a/b;
-                }
-                catch (ArithmeticException e){
-                    System.out.println("0은 분모에 위치할 수 없습니다.");
-                }
+                ret=div.operate(a, b);
                 break;
         }
         return ret;

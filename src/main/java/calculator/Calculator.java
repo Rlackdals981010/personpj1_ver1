@@ -4,7 +4,11 @@ import java.util.*;
 
 public class Calculator {
 
-    private ArrayList<Integer> arr = new ArrayList<>();
+    private ArrayList<Integer> arr;
+
+    public Calculator(){
+        this.arr = new ArrayList<>();
+    }
 
     public ArrayList<Integer> getArr() {
         return arr;

@@ -42,4 +42,10 @@ public class Calculator {
     public void removeResult(){
         this.arr.remove(0);
     }
+
+    public void inquiryResults(){
+        for(int val: this.arr)
+            System.out.print(val+" ");
+        System.out.println();
+    }
 }

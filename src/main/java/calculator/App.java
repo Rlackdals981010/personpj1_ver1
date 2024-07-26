@@ -20,11 +20,14 @@ public class App  {
             if(command.equals("1")){
                 callAC();
             }
-            else{
+            else if(command.equals("2")){
                 callCA();
             }
+            else{
+                System.out.println("해당 입력은 잘못된 입력입니다.");
+            }
 
-            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
+            System.out.println("계속 하시겠습니까? (exit 입력 시 종료)");
             command=br.readLine();
         }
 

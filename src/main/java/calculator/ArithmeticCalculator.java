@@ -18,7 +18,7 @@ public class ArithmeticCalculator extends Calculator {
         this.mod = new ModOperator();
     }
 
-    public int calculate(int a,int b, char sign) throws Exception {
+    public int calculate(int a,int b, char sign) {
         int ret=0;
         switch (sign){
             case '+':

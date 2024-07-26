@@ -3,7 +3,17 @@ package calculator;
 import java.util.*;
 
 public class Calculator {
-    ArrayList<Integer> arr = new ArrayList<>();
+
+    private ArrayList<Integer> arr = new ArrayList<>();
+
+    public ArrayList<Integer> getArr() {
+        return arr;
+    }
+
+    public void setArr(int ret) {
+        this.arr.add(ret);
+    }
+
 
     public int calculate(int a,int b, char sign)throws Exception{
         int ret=0;

@@ -26,16 +26,16 @@ public class App {
             int ret = cal.calculate(a, b, sign);
 
             System.out.println("결과:"+ret);
-            cal.arr.add(ret);
+            cal.setArr(ret);
 
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             command=br.readLine();
-            if(command.equals("remove")) cal.arr.remove(0);
+            //if(command.equals("remove")) cal.arr.remove(0);
 
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             command=br.readLine();
             if(command.equals("inquiry")) {
-                for(int val : cal.arr)
+                for(int val : cal.getArr())
                     System.out.print(val+" ");
                 System.out.println();
             }

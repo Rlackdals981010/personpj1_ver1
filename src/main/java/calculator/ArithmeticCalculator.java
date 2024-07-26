@@ -19,12 +19,12 @@ public class ArithmeticCalculator extends Calculator {
         this.mod = new ModOperator();
     }
 
-    public int calculate(int a,int b, char sign){
+    public double calculate(int a,int b, char sign){
         return calculate(a,b,OperatorType.findType(sign));
     }
 
-    public int calculate(int a,int b, OperatorType ot) {
-        int ret = switch (ot) {
+    public double calculate(int a,int b, OperatorType ot) {
+        double ret = switch (ot) {
             case ADD -> add.operate(a, b);
             case SUB -> sub.operate(a, b);
             case MUL -> mul.operate(a, b);

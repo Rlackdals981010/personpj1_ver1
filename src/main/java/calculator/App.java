@@ -9,8 +9,6 @@ public class App  {
     static ArithmeticCalculator cal = new ArithmeticCalculator();
     static CircleCalculator cir_cal = new CircleCalculator();
 
-    static int a,b; // idx 삭제
-    static char sign; // 연산자 객체
     static String command; // remove, inquiry, exit 객체
 
     public static void main(String[] args)throws Exception  {
@@ -33,6 +31,8 @@ public class App  {
     }
 
     static void callAC() throws Exception{
+        int a,b;
+        char sign;
         System.out.print("첫 번째 숫자를 입력하세요: ");
         a=Integer.parseInt(br.readLine());
         System.out.print("두 번째 숫자를 입력하세요: ");
@@ -57,10 +57,11 @@ public class App  {
     }
 
     static void callCA() throws Exception{
+        int r;
         System.out.print("반지름을 입력하세요: ");
-        a=Integer.parseInt(br.readLine());
+        r=Integer.parseInt(br.readLine());
 
-        double ret = cir_cal.calculate(a);
+        double ret = cir_cal.calculate(r);
 
         System.out.println("결과:"+ret);
         cir_cal.setArr(ret);

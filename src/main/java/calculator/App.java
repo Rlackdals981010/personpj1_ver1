@@ -38,8 +38,18 @@ public class App {
                     else ret=a/b;
                     break;
             }
+
             System.out.println("결과:"+ret);
-            arr[idx++]=ret;
+            if(idx>=9){
+                for(int i=0;i<idx;i++){
+                    arr[i]=arr[i+1];
+                }
+                arr[idx]=ret;
+            }
+            else {
+                arr[idx++] = ret;
+            }
+            System.out.println(idx);
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             command=br.readLine();

@@ -1,8 +1,8 @@
 package calculator.ACalculator;
 
-public class MultiplyOperator implements InterOperator {
+public class MultiplyOperator implements InterOperator<Double,Double> {
     @Override
-    public double operate(int a, int b) {
+    public Double operate(Double a, Double b) {
         return a*b;
     }
 }

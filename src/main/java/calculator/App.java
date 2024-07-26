@@ -33,7 +33,7 @@ public class App  {
     }
 
     static void callAC() throws Exception{
-        int a,b;
+        double a,b;
         char sign;
         System.out.print("첫 번째 숫자를 입력하세요: ");
         a=Integer.parseInt(br.readLine());

@@ -1,9 +1,9 @@
 package calculator.ACalculator;
 
-public class ModOperator implements InterOperator{
+public class ModOperator implements InterOperator<Double,Double> {
 
     @Override
-    public double operate(int a, int b) {
+    public Double operate(Double a, Double b) {
         double ret = 0;
         try{
             ret = a%(double)b;

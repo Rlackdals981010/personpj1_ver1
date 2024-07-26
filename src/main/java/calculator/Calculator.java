@@ -1,23 +1,23 @@
 package calculator;
 
-import calculator.ACalculator.*;
+
 
 import java.util.*;
 
-public class Calculator {
+public class Calculator<T> {
 
-    private final ArrayList<Double> arr;
+    private final ArrayList<T> arr;
 
 
     public Calculator(){
         this.arr = new ArrayList<>();
     }
 
-    public ArrayList<Double> getArr() {
+    public ArrayList<T> getArr() {
         return arr;
     }
 
-    public void setArr(Double ret) {
+    public void setArr(T ret) {
         this.arr.add(ret);
     }
 
@@ -26,7 +26,7 @@ public class Calculator {
     }
 
     public void inquiryResults(){
-        for(Double val: this.arr)
+        for(T val: this.arr)
             System.out.print(val+" ");
         System.out.println();
     }

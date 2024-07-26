@@ -2,13 +2,13 @@ package calculator;
 
 import calculator.ACalculator.*;
 
-public class ArithmeticCalculator extends Calculator {
+public class ArithmeticCalculator<T> extends Calculator {
 
-    InterOperator add;
-    InterOperator sub;
-    InterOperator div;
-    InterOperator mul;
-    InterOperator mod;
+    private final InterOperator<Double, Double> add;
+    private final InterOperator<Double, Double> sub;
+    private final InterOperator<Double, Double> div;
+    private final InterOperator<Double, Double> mul;
+    private final InterOperator<Double, Double> mod;
 
     public ArithmeticCalculator(){
 
@@ -19,18 +19,17 @@ public class ArithmeticCalculator extends Calculator {
         this.mod = new ModOperator();
     }
 
-    public double calculate(int a,int b, char sign){
+    public Double calculate(Double a,Double b, char sign){
         return calculate(a,b,OperatorType.findType(sign));
     }
 
-    public double calculate(int a,int b, OperatorType ot) {
-        double ret = switch (ot) {
+    public Double calculate(Double a,Double b, OperatorType ot) {
+         return  switch (ot) {
             case ADD -> add.operate(a, b);
             case SUB -> sub.operate(a, b);
             case MUL -> mul.operate(a, b);
             case DIV -> div.operate(a, b);
             case MOD -> mod.operate(a, b);
         };
-        return ret;
     }
 }

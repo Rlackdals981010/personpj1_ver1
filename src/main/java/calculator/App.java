@@ -8,8 +8,8 @@ public class App {
     public static void main(String[] args)throws Exception {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        Calculator cal = new Calculator();
-        Calculator cir_cal = new Calculator();
+        ArithmeticCalculator cal = new ArithmeticCalculator();
+        CircleCalculator cir_cal = new CircleCalculator();
 
         int a,b; // idx 삭제
         char sign;
@@ -27,7 +27,7 @@ public class App {
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 sign=br.readLine().charAt(0);
 
-                int ret = cal.calculate(a, b, sign);
+                double ret = cal.calculate(a, b, sign);
 
                 System.out.println("결과:"+ret);
                 cal.setArr(ret);
@@ -46,19 +46,19 @@ public class App {
                 System.out.print("반지름을 입력하세요: ");
                 a=Integer.parseInt(br.readLine());
 
-                double ret = cir_cal.calculateCircleArea(a);
+                double ret = cir_cal.calculate(a);
 
                 System.out.println("결과:"+ret);
-                cir_cal.setCir_arr(ret);
+                cir_cal.setArr(ret);
 
                 System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
                 command=br.readLine();
-                if(command.equals("remove")) cir_cal.removeCirResult();
+                if(command.equals("remove")) cir_cal.removeResult();
 
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
                 command=br.readLine();
                 if(command.equals("inquiry")) {
-                    cir_cal.inquiryCirResults();
+                    cir_cal.inquiryResults();
                 }
             }
 

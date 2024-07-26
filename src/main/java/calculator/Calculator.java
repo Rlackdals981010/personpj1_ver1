@@ -38,4 +38,8 @@ public class Calculator {
         }
         return ret;
     }
+
+    public void removeResult(){
+        this.arr.remove(0);
+    }
 }

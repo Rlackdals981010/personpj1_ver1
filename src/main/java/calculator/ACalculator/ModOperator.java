@@ -11,6 +11,6 @@ public class ModOperator implements InterOperator<Double,Double> {
         catch(ArithmeticException e){
             System.out.println("0은 분모에 위치할 수 없습니다.");
         }
-         return ret;
+        return ret;
     }
 }

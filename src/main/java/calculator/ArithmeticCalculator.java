@@ -7,8 +7,6 @@ import java.util.stream.Collectors;
 
 public class ArithmeticCalculator<T extends Comparable<T>> extends Calculator<T> {
 
-
-
     private final InterOperator<Double, Double> add;
     private final InterOperator<Double, Double> sub;
     private final InterOperator<Double, Double> div;
@@ -43,12 +41,10 @@ public class ArithmeticCalculator<T extends Comparable<T>> extends Calculator<T>
                 .filter(val -> val.compareTo(a) > 0)
                 .collect(Collectors.toCollection(ArrayList::new));
 
-        for (T val : ret) {
-            System.out.println(val + " ");
-        }
+//        for (T val : ret) {
+//            System.out.println(val + " ");
+//        }
+        ret.forEach(val -> System.out.println(val+" "));
     }
-
-
-
 }
 

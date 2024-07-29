@@ -5,7 +5,7 @@ import java.io.*;
 public class App  {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static ArithmeticCalculator cal = new ArithmeticCalculator();
+    static ArithmeticCalculator<Double> cal = new ArithmeticCalculator<>();
     static CircleCalculator cir_cal = new CircleCalculator();
 
     static String command; // remove, inquiry, exit 객체
@@ -56,6 +56,10 @@ public class App  {
         if(command.equals("inquiry")) {
             cal.inquiryResults();
         }
+
+        System.out.println("입력한 숫자보다 큰 결과 보기 (숫자를 입력하세요):");
+        a=Integer.parseInt(br.readLine());
+        cal.getBigger(a);
     }
 
     static void callCA() throws Exception{

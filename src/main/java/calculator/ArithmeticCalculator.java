@@ -2,7 +2,12 @@ package calculator;
 
 import calculator.ACalculator.*;
 
-public class ArithmeticCalculator<T> extends Calculator {
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
+public class ArithmeticCalculator<T extends Comparable<T>> extends Calculator<T> {
+
+
 
     private final InterOperator<Double, Double> add;
     private final InterOperator<Double, Double> sub;
@@ -32,4 +37,18 @@ public class ArithmeticCalculator<T> extends Calculator {
             case MOD -> mod.operate(a, b);
         };
     }
+
+    public void getBigger(T a) {
+        ArrayList<T> ret = super.getArr().stream()
+                .filter(val -> val.compareTo(a) > 0)
+                .collect(Collectors.toCollection(ArrayList::new));
+
+        for (T val : ret) {
+            System.out.println(val + " ");
+        }
+    }
+
+
+
 }
+
